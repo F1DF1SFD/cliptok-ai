@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 265 40% 5%;
+    --foreground: 268 22% 97%;
+    --card: 265 30% 9%;
+    --card-foreground: 268 22% 97%;
+    --popover: 265 34% 8%;
+    --popover-foreground: 268 22% 97%;
+    --primary: 265 100% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 22% 16%;
+    --secondary-foreground: 268 20% 94%;
+    --muted: 265 20% 14%;
+    --muted-foreground: 265 12% 66%;
+    --accent: 265 28% 19%;
+    --accent-foreground: 268 22% 97%;
+    --destructive: 0 72% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 265 20% 19%;
+    --input: 265 20% 22%;
+    --ring: 265 100% 64%;
+    --radius: 0.9rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01" on, "cv11" on;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(145, 70, 255, 0.22), transparent 65%),
+      radial-gradient(ellipse 40% 40% at 100% 0%, rgba(255, 62, 165, 0.12), transparent 70%),
+      radial-gradient(ellipse 50% 50% at 0% 100%, rgba(70, 200, 255, 0.06), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(145, 70, 255, 0.4);
+  }
+
+  input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: 1px solid hsl(var(--border));
+    border-radius: 10px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-2xl border border-white/[0.07] bg-white/[0.03] backdrop-blur-xl;
+    box-shadow: 0 22px 70px -45px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .panel-hover {
+    @apply transition-all duration-300 hover:border-primary/40 hover:bg-white/[0.05];
+  }
+
+  .display {
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(100deg, #ffffff 10%, #d9b8ff 45%, #9146ff 75%, #ff3ea5 100%);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 80%);
+  }
+
+  .kbd {
+    @apply inline-flex items-center rounded-md border border-white/10 bg-white/[0.06] px-1.5 py-0.5 font-mono text-[10px] font-medium text-muted-foreground;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(145, 70, 255, 0.5) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(145, 70, 255, 0.4);
+    border-radius: 999px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .skeleton {
+    @apply animate-shimmer rounded-lg;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.09) 50%,
+      rgba(255, 255, 255, 0.04) 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  .safe-area-frame {
+    box-shadow:
+      0 0 0 1px rgba(145, 70, 255, 0.25),
+      0 30px 90px -50px rgba(0, 0, 0, 1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

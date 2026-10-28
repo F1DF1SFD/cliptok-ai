@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+backend/.venv/
+
+# builds
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+frontend/tsconfig.tsbuildinfo
+
+# packaged desktop app (dist/ zip, build/ staging + cached runtimes)
+dist/
+build/
+
+# env
+.env
+.env.local
+frontend/.env.local
+
+# runtime data (projects, renders, whisper models, sqlite)
+backend/data/
+data/
+
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# misc
+.DS_Store
+*.log

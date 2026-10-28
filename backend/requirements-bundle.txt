@@ -1,0 +1,7 @@
+-r requirements.txt
+
+# Bundled runtime for the downloadable app (scripts/package.sh):
+# yt-dlp is pure Python (Twitch import), static-ffmpeg supplies portable
+# ffmpeg + ffprobe binaries when the machine has no FFmpeg installed.
+yt-dlp>=2025.1.15
+static-ffmpeg>=2.7
